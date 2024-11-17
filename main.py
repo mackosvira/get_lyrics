@@ -5,6 +5,18 @@ from kivy.core.window import Window
 from kivymd.uix.menu import MDDropdownMenu
 from kivy.clock import Clock
 from API_lyrics_ovh import fetch_suggestions, get_lyrics
+from kivy.core.clipboard import Clipboard
+from kivymd.uix.label import MDLabel
+
+
+class CopyableLabel(MDLabel):
+    def on_touch_down(self, touch):
+        if self.collide_point(*touch.pos):
+            Clipboard.copy(self.text)
+            print("Text copied to clipboard:")
+            return True
+        return super().on_touch_down(touch)
+
 
 class GetLyrics(MDApp):
 
