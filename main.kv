@@ -1,0 +1,53 @@
+MDScreen:
+
+    MDGridLayout:
+        cols: 2
+        spacing: "15dp"
+        padding: "8dp"
+
+        MDTextField:
+            id: search
+            mode: "filled"
+            adaptive_height: True
+            hint_text: 'input text and press "Enter"'
+            on_text_validate: app.show_search_menu(self.text)
+
+            MDTextFieldLeadingIcon:
+                icon: "magnify"
+
+            MDTextFieldHintText:
+                text: "Song Title - Artist"
+
+        MDSegmentedButton:
+
+            MDSegmentedButtonItem:
+                active: True
+
+                MDSegmentButtonLabel:
+                    text: "lyrics.ovh"
+
+            MDSegmentedButtonItem:
+
+                MDSegmentButtonLabel:
+                    text: "Other 1"
+
+            MDSegmentedButtonItem:
+
+                MDSegmentButtonLabel:
+                    text: "Other2"
+
+        MDScrollView:
+
+            MDLabel:
+                id: text1
+                adaptive_size: True
+                allow_selection: True
+                allow_copy: True
+
+        MDScrollView:
+
+            MDLabel:
+                id: text2
+                adaptive_size: True
+                allow_selection: True
+                allow_copy: True
